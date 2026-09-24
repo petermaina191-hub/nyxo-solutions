@@ -1,69 +1,200 @@
-import Image from "next/image";
+import { ConstellationField } from "@/components/ConstellationField";
+import { Mark } from "@/components/Logo";
+import { GlassCard } from "@/components/GlassCard";
+import { Button } from "@/components/Button";
 
-export default function Home() {
+const TIERS = [
+  {
+    name: "Presence",
+    desc: "Get your business online and taking orders on WhatsApp within days.",
+  },
+  {
+    name: "Growth",
+    desc: "A full catalogue site with cart, checkout, and admin tools.",
+  },
+  {
+    name: "Systems",
+    desc: "Connect stock, sales, and payments so nothing runs on guesswork.",
+  },
+];
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div>
+      {/* hero */}
+      <div style={{ position: "relative", overflow: "hidden" }}>
+        <ConstellationField
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div
+          className="hero-grid fade-up"
+          style={{
+            maxWidth: 1120,
+            margin: "0 auto",
+            padding: "88px 24px 40px",
+            display: "grid",
+            gridTemplateColumns: "1.1fr 0.9fr",
+            gap: 40,
+            alignItems: "center",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
+          <div>
+            <h1
+              style={{
+                fontWeight: 800,
+                fontSize: 46,
+                lineHeight: 1.08,
+                letterSpacing: "-0.02em",
+                maxWidth: 520,
+              }}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Websites and systems your business actually runs on.
+            </h1>
+            <p
+              style={{
+                fontFamily: "Manrope, sans-serif",
+                fontSize: 16,
+                color: "var(--text-muted)",
+                maxWidth: 460,
+                marginTop: 18,
+                lineHeight: 1.6,
+              }}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Nyxo Solutions builds practical technology for Kenyan SMEs —
+              from your first website to the systems that keep stock,
+              staff, and sales in sync.
+            </p>
+            <div style={{ display: "flex", gap: 12, marginTop: 30 }}>
+              <Button href="/contact">Start a project</Button>
+              <Button variant="ghost" href="/services">
+                See how we work
+              </Button>
+            </div>
+          </div>
+
+          <div style={{ position: "relative", height: 320 }}>
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Mark size={230} />
+            </div>
+            <GlassCard
+              hover={false}
+              style={{ position: "absolute", bottom: 10, left: 0, padding: "16px 18px", maxWidth: 230 }}
+            >
+              <div
+                style={{
+                  fontFamily: "Manrope, sans-serif",
+                  fontSize: 12,
+                  color: "var(--text-faint)",
+                  marginBottom: 4,
+                }}
+              >
+                Live build
+              </div>
+              <div style={{ fontWeight: 700, fontSize: 14.5 }}>
+                Multi-outlet retailer, WhatsApp checkout live
+              </div>
+            </GlassCard>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      {/* tiers preview */}
+      <div style={{ maxWidth: 1120, margin: "60px auto 0", padding: "0 24px" }}>
+        <h2 style={{ fontWeight: 700, fontSize: 24, margin: "0 0 24px" }}>
+          Three ways to work with us
+        </h2>
+        <div className="tier-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
+          {TIERS.map((t) => (
+            <GlassCard key={t.name} style={{ padding: 24 }}>
+              <div
+                style={{
+                  width: 34,
+                  height: 34,
+                  borderRadius: 9,
+                  background: "linear-gradient(135deg, var(--violet), var(--cyan))",
+                  marginBottom: 16,
+                }}
+              />
+              <div style={{ fontWeight: 700, fontSize: 17, marginBottom: 8 }}>{t.name}</div>
+              <div
+                style={{
+                  fontFamily: "Manrope, sans-serif",
+                  fontSize: 13.5,
+                  color: "var(--text-muted)",
+                  lineHeight: 1.55,
+                }}
+              >
+                {t.desc}
+              </div>
+            </GlassCard>
+          ))}
         </div>
-      </main>
+      </div>
+
+      {/* case study */}
+      <div style={{ maxWidth: 1120, margin: "70px auto 0", padding: "0 24px" }}>
+        <GlassCard
+          hover={false}
+          className="case-grid"
+          style={{
+            padding: 36,
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 24,
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <div
+              style={{
+                fontFamily: "Manrope, sans-serif",
+                fontSize: 12,
+                color: "var(--cyan-soft)",
+                marginBottom: 10,
+                fontWeight: 700,
+              }}
+            >
+              Case study
+            </div>
+            <h3 style={{ fontWeight: 700, fontSize: 22, margin: "0 0 12px" }}>
+              Built for how retail actually runs
+            </h3>
+            <p
+              style={{
+                fontFamily: "Manrope, sans-serif",
+                fontSize: 14,
+                color: "var(--text-muted)",
+                lineHeight: 1.6,
+                maxWidth: 420,
+              }}
+            >
+              A multi-outlet clothing retailer needed customers to browse,
+              customise, and order without calling the shop. We built a
+              catalogue site with WhatsApp checkout built in — live today,
+              taking real orders.
+            </p>
+          </div>
+          <div
+            style={{
+              height: 160,
+              borderRadius: 14,
+              background:
+                "linear-gradient(135deg, var(--violet-deep), var(--violet) 60%, var(--cyan))",
+              opacity: 0.85,
+            }}
+          />
+        </GlassCard>
+      </div>
     </div>
   );
 }
