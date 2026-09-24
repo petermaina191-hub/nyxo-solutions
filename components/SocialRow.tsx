@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Facebook, Linkedin, Instagram } from "lucide-react";
+import { Github, Facebook, Instagram } from "lucide-react";
 
 function GoogleIcon({ size = 17 }: { size?: number }) {
   return (
@@ -28,7 +28,6 @@ const PROVIDERS = [
   { icon: <GoogleIcon />, label: "Google" },
   { icon: <Github size={17} />, label: "GitHub" },
   { icon: <Facebook size={17} />, label: "Facebook" },
-  { icon: <Linkedin size={17} />, label: "LinkedIn" },
   { icon: <Instagram size={17} />, label: "Instagram" },
 ];
 
