@@ -1,3 +1,5 @@
+"use client";
+
 import { SERVICES } from "@/data/services";
 import { ServiceCard } from "@/components/ServiceCard";
 import { GlassCard } from "@/components/GlassCard";
@@ -22,7 +24,8 @@ export default function ServicesPage() {
         included before you ask. Tap a service to open it.
       </p>
 
-      <div
+  
+    <div
         className="services-grid"
         style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}
       >
@@ -30,7 +33,7 @@ export default function ServicesPage() {
           <ServiceCard key={s.id} service={s} defaultOpen={i === 0} />
         ))}
       </div>
-
+   
       <GlassCard hover={false} spotlight={false} style={{ padding: 28, marginTop: 30 }}>
         <div style={{ fontFamily: "Sora, sans-serif", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>
           Every build includes an ongoing plan
