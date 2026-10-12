@@ -134,7 +134,7 @@ export function Footer() {
               <span>
                 P.O. Box 00300-00100, Nairobi, Kenya
                 <br />
-                Operating virtually — no physical office yet
+                Nairobi, Kenya
               </span>
             </div>
           </div>
