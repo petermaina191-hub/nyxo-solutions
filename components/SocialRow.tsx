@@ -48,9 +48,7 @@ const PROVIDERS: {
   { id: "linkedin_oidc", icon: <LinkedInIcon />, label: "LinkedIn" },
 ];
 
-// Instagram is intentionally not here — Supabase doesn't support it as an
-// OAuth login provider (it only exists via Meta's business-login flow).
-// It's linked as a social icon in the footer instead.
+
 export function SocialRow() {
   const supabase = createClient();
 
