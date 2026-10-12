@@ -1,24 +1,14 @@
-import React from "react";
+"use client";
+
+import { createClient } from "@/lib/supabase/client";
 
 function GoogleIcon({ size = 17 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 48 48">
-      <path
-        fill="#EA4335"
-        d="M24 9.5c3.4 0 6.4 1.2 8.8 3.5l6.5-6.5C35.3 2.5 30 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.6 5.9C12.1 13 17.5 9.5 24 9.5z"
-      />
-      <path
-        fill="#4285F4"
-        d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.4 5.7c4.3-4 6.8-9.9 6.8-17.4z"
-      />
-      <path
-        fill="#FBBC05"
-        d="M10.2 19.1a14.4 14.4 0 0 0 0 9.8l-7.6 5.9a24 24 0 0 1 0-21.6l7.6 5.9z"
-      />
-      <path
-        fill="#34A853"
-        d="M24 48c6 0 11.3-2 15.1-5.4l-7.4-5.7c-2 1.4-4.6 2.2-7.7 2.2-6.5 0-11.9-3.5-13.8-8.6l-7.6 5.9C6.5 42.6 14.6 48 24 48z"
-      />
+      <path fill="#EA4335" d="M24 9.5c3.4 0 6.4 1.2 8.8 3.5l6.5-6.5C35.3 2.5 30 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.6 5.9C12.1 13 17.5 9.5 24 9.5z" />
+      <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.4 5.7c4.3-4 6.8-9.9 6.8-17.4z" />
+      <path fill="#FBBC05" d="M10.2 19.1a14.4 14.4 0 0 0 0 9.8l-7.6 5.9a24 24 0 0 1 0-21.6l7.6 5.9z" />
+      <path fill="#34A853" d="M24 48c6 0 11.3-2 15.1-5.4l-7.4-5.7c-2 1.4-4.6 2.2-7.7 2.2-6.5 0-11.9-3.5-13.8-8.6l-7.6 5.9C6.5 42.6 14.6 48 24 48z" />
     </svg>
   );
 }
@@ -47,42 +37,39 @@ function LinkedInIcon({ size = 17 }: { size?: number }) {
   );
 }
 
-function InstagramIcon({ size = 17 }: { size?: number }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-    </svg>
-  );
-}
-
-const PROVIDERS = [
-  { icon: <GoogleIcon />, label: "Google" },
-  { icon: <GitHubIcon />, label: "GitHub" },
-  { icon: <FacebookIcon />, label: "Facebook" },
-  { icon: <LinkedInIcon />, label: "LinkedIn" },
-  { icon: <InstagramIcon />, label: "Instagram" },
+const PROVIDERS: {
+  id: "google" | "github" | "facebook" | "linkedin_oidc";
+  icon: React.ReactNode;
+  label: string;
+}[] = [
+  { id: "google", icon: <GoogleIcon />, label: "Google" },
+  { id: "github", icon: <GitHubIcon />, label: "GitHub" },
+  { id: "facebook", icon: <FacebookIcon />, label: "Facebook" },
+  { id: "linkedin_oidc", icon: <LinkedInIcon />, label: "LinkedIn" },
 ];
 
-// Decorative for now — wire each button's onClick to your Supabase OAuth
-// call (supabase.auth.signInWithOAuth({ provider: '...' })) once auth is
-// connected. No lucide-react dependency here anymore, so nothing in this
-// file can break on a future icon-library update.
+// Instagram is intentionally not here — Supabase doesn't support it as an
+// OAuth login provider (it only exists via Meta's business-login flow).
+// It's linked as a social icon in the footer instead.
 export function SocialRow() {
+  const supabase = createClient();
+
+  async function handleOAuth(provider: (typeof PROVIDERS)[number]["id"]) {
+    await supabase.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo: `${window.location.origin}/auth/callback` },
+    });
+  }
+
   return (
     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
       {PROVIDERS.map((p) => (
-        <button key={p.label} type="button" className="social-btn">
+        <button
+          key={p.id}
+          type="button"
+          className="social-btn"
+          onClick={() => handleOAuth(p.id)}
+        >
           {p.icon}
           {p.label}
         </button>
