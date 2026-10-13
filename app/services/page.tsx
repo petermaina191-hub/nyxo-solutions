@@ -3,6 +3,7 @@
 import { SERVICES } from "@/data/services";
 import { ServiceCard } from "@/components/ServiceCard";
 import { GlassCard } from "@/components/GlassCard";
+import { Reveal } from "@/components/Reveal";
 
 export default function ServicesPage() {
   return (
@@ -24,16 +25,17 @@ export default function ServicesPage() {
         included before you ask. Tap a service to open it.
       </p>
 
-  
-    <div
-        className="services-grid"
-        style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}
-      >
-        {SERVICES.map((s, i) => (
-          <ServiceCard key={s.id} service={s} defaultOpen={i === 0} />
-        ))}
-      </div>
-   
+      <Reveal>
+        <div
+          className="services-grid"
+          style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}
+        >
+          {SERVICES.map((s, i) => (
+            <ServiceCard key={s.id} service={s} defaultOpen={i === 0} />
+          ))}
+        </div>
+      </Reveal>
+
       <GlassCard hover={false} spotlight={false} style={{ padding: 28, marginTop: 30 }}>
         <div style={{ fontFamily: "Sora, sans-serif", fontWeight: 700, fontSize: 16, marginBottom: 8 }}>
           Every build includes an ongoing plan

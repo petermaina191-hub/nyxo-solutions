@@ -3,6 +3,7 @@ import "./globals.css";
 import { NavBar } from "@/components/NavBar";
 import { Footer } from "@/components/Footer";
 import { TechBackdrop } from "@/components/TechBackdrop";
+import { CinematicOverlay } from "@/components/CinematicOverlay";
 
 export const metadata: Metadata = {
   title: "Nyxo Solutions",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <TechBackdrop />
+        <CinematicOverlay />
         <div className="grain" />
         <NavBar />
         <main>{children}</main>

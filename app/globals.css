@@ -16,6 +16,25 @@
   --text-faint: #6E6390;
 }
 
+:root[data-theme="light"] {
+  --bg: #F5F4FA;
+  --bg-soft: #FFFFFF;
+  --surface: rgba(20, 10, 45, 0.045);
+  --surface-border: rgba(20, 10, 45, 0.12);
+  --surface-border-hover: rgba(20, 10, 45, 0.22);
+  --violet-deep: #E2D6FF;
+  --violet: #7C4DFF;
+  --violet-soft: #6A3FE0;
+  --cyan: #0FAFAF;
+  --cyan-soft: #0C8F8F;
+  --text: #1C1530;
+  --text-muted: #5B5278;
+  --text-faint: #8A80A6;
+}
+
+:root[data-theme="light"] .grain { opacity: 0.015; }
+:root[data-theme="light"] .tech-grid { opacity: 0.5; }
+
 * { box-sizing: border-box; }
 
 html, body {
@@ -230,6 +249,82 @@ a:hover .brand-mark { transform: scale(1.06) rotate(2deg); }
   .orb, .fade-up { animation: none !important; }
 }
 
+/* ---------- theme toggle ---------- */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--surface-border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--surface-border-hover);
+  transform: translateY(-1px);
+}
+
+/* ---------- status badges ---------- */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+.status-new, .status-in_review { background: rgba(124, 77, 255, 0.15); color: var(--violet-soft); }
+.status-in_progress { background: rgba(69, 230, 230, 0.15); color: var(--cyan-soft); }
+.status-review { background: rgba(255, 167, 38, 0.18); color: #FFA726; }
+.status-completed { background: rgba(52, 211, 153, 0.15); color: #34D399; }
+.status-declined, .status-cancelled { background: rgba(255, 107, 107, 0.15); color: #FF6B6B; }
+.status-on_hold { background: rgba(167, 155, 199, 0.15); color: var(--text-muted); }
+
+/* ---------- select & admin rows ---------- */
+.nyxo-select {
+  border-radius: 10px;
+  border: 1px solid var(--surface-border);
+  background: var(--bg-soft);
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 7px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.admin-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 14px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--surface-border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+@media (max-width: 640px) {
+  .admin-row { grid-template-columns: 1fr; }
+}
+
+/* ---------- footer ---------- */
+@media (max-width: 760px) {
+  .footer-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr !important; }
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
@@ -244,4 +339,174 @@ a:hover .brand-mark { transform: scale(1.06) rotate(2deg); }
   .nav-actions-desktop { display: none !important; }
   .nav-toggle { display: block !important; }
   .nav-mobile-panel { display: flex !important; }
+}
+
+/* =====================================================================
+   CINEMATIC PACK
+   All effects use only opacity/transform (cheap on phones) and are
+   switched off for people who ask their device to reduce motion.
+   ===================================================================== */
+
+/* ---------- scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- hero intro ---------- */
+.hero-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(8px);
+  animation: heroIn 1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+.hero-in {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: heroIn 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes heroIn {
+  to { opacity: 1; transform: none; filter: blur(0); }
+}
+
+/* light beam that crosses the hero once on load */
+.hero-beam {
+  position: absolute;
+  top: -20%;
+  bottom: -20%;
+  left: 0;
+  width: 28%;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 0%,
+    rgba(143, 242, 242, 0.10) 45%,
+    rgba(155, 123, 255, 0.16) 55%,
+    transparent 100%
+  );
+  transform: translateX(-140%) skewX(-18deg);
+  animation: beam 2.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s 1 forwards;
+}
+@keyframes beam {
+  to { transform: translateX(520%) skewX(-18deg); }
+}
+
+/* slow breathing glow behind the logo mark */
+.mark-glow {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+}
+.mark-glow::before {
+  content: "";
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 77, 255, 0.38), transparent 65%);
+  z-index: -1;
+  animation: breathe 6s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.5; transform: scale(0.95); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+/* ---------- film lighting overlays ---------- */
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(5, 2, 12, 0.45) 100%);
+}
+.light-leak {
+  position: fixed;
+  inset: 0;
+  z-index: 48;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 40% at 15% 0%, rgba(124, 77, 255, 0.18), transparent 70%),
+    radial-gradient(50% 35% at 100% 100%, rgba(69, 230, 230, 0.10), transparent 70%);
+  animation: leak 14s ease-in-out infinite alternate;
+}
+@keyframes leak {
+  from { opacity: 0.55; }
+  to { opacity: 1; }
+}
+:root[data-theme="light"] .vignette {
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(40, 20, 80, 0.10) 100%);
+}
+:root[data-theme="light"] .light-leak { opacity: 0.5; animation: none; }
+
+/* ---------- page transition ---------- */
+.page-enter { animation: pageIn 0.5s ease backwards; }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+}
+
+/* ---------- services marquee ---------- */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+.marquee:hover .marquee-track { animation-play-state: paused; }
+.marquee-set {
+  display: flex;
+  gap: 14px;
+  padding-right: 14px;
+  flex-shrink: 0;
+}
+.marquee-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.marquee-chip i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- safety nets ---------- */
+@media (scripting: none) {
+  .reveal { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hero-line, .hero-in { opacity: 1; transform: none; filter: none; animation: none; }
+  .hero-beam, .light-leak, .mark-glow::before, .page-enter { animation: none; }
+  .hero-beam { display: none; }
+  .marquee-track { animation: none; width: auto; flex-wrap: wrap; justify-content: center; }
+  .marquee-dup { display: none; }
 }
