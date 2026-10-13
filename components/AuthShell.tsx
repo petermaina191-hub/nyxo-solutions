@@ -1,4 +1,5 @@
 import React from "react";
+import { PrivacyNotice } from "./PrivacyNotice";
 import Link from "next/link";
 import { GlassCard } from "./GlassCard";
 import { SocialRow } from "./SocialRow";
@@ -56,6 +57,24 @@ export function AuthShell({
         </div>
 
         <SocialRow />
+
+        <div style={{ marginTop: 18 }}>
+          <PrivacyNotice purpose="We use your details to create and manage your account." />
+          <p
+            style={{
+              fontFamily: "Manrope, sans-serif",
+              fontSize: 11.5,
+              color: "var(--text-faint)",
+              margin: "6px 0 0",
+            }}
+          >
+            By continuing you accept our{" "}
+            <Link href="/terms" style={{ color: "var(--cyan-soft)", fontWeight: 600 }}>
+              Terms of Use
+            </Link>
+            .
+          </p>
+        </div>
 
         <div
           style={{

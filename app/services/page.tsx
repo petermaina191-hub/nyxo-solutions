@@ -22,7 +22,7 @@ export default function ServicesPage() {
         }}
       >
         Every service is packaged in tiers, so you can see exactly what's
-        included before you ask. Tap a service to open it.
+        included before you ask. Prices are starting guides; your written quotation sets the final price. Tap a service to open it.
       </p>
 
       <Reveal>

@@ -134,7 +134,7 @@ export function Footer() {
               <span>
                 P.O. Box 00300-00100, Nairobi, Kenya
                 <br />
-                Nairobi, Kenya
+                Operating virtually — no physical office yet
               </span>
             </div>
           </div>
@@ -157,9 +157,17 @@ export function Footer() {
           }}
         >
           <span>© {new Date().getFullYear()} Nyxo Solutions</span>
-          <Link href="/privacy" className="nav-link" style={{ fontSize: 12 }}>
-            Privacy Policy
-          </Link>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 20px" }}>
+            <Link href="/privacy" className="nav-link" style={{ fontSize: 12 }}>
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="nav-link" style={{ fontSize: 12 }}>
+              Terms of Use
+            </Link>
+            <Link href="/service-agreement" className="nav-link" style={{ fontSize: 12 }}>
+              Service Agreement
+            </Link>
+          </div>
         </div>
       </div>
     </div>
