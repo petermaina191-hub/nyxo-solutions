@@ -5,6 +5,7 @@ import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
 import { Parallax } from "@/components/Parallax";
 import { SERVICES } from "@/data/services";
+import Image from "next/image";
 
 const TIERS = [
   {
@@ -19,6 +20,12 @@ const TIERS = [
     name: "Systems",
     desc: "Connect stock, sales, and payments so nothing runs on guesswork.",
   },
+];
+
+const CLIENTS = [
+  { name: "Mwas Knit Wear Limited", logo: "/mwas-knit-logo.jpeg", alt: "Mwas Knit Wear logo", href: "https://www.mwasknitwear.co.ke" },
+  { name: "Accquest Training Institute", logo: "/accquest-training-institute-logo.jpeg", alt: "Accquest Training Institute logo", href: "https://accquest-ivory.vercel.app" },
+  { name: "Terratidy" },
 ];
 
 export default function HomePage() {
@@ -190,60 +197,73 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* case study */}
+      {/* client case studies */}
       <div style={{ maxWidth: 1120, margin: "70px auto 0", padding: "0 24px" }}>
         <Reveal>
-          <GlassCard
-            hover={false}
-            className="case-grid"
-            style={{
-              padding: 36,
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 24,
-              alignItems: "center",
-            }}
-          >
-            <div>
-              <div
-                style={{
-                  fontFamily: "Manrope, sans-serif",
-                  fontSize: 12,
-                  color: "var(--cyan-soft)",
-                  marginBottom: 10,
-                  fontWeight: 700,
-                }}
-              >
-                Case study
-              </div>
-              <h3 style={{ fontWeight: 700, fontSize: 22, margin: "0 0 12px" }}>
-                Built for how retail actually runs
-              </h3>
-              <p
-                style={{
-                  fontFamily: "Manrope, sans-serif",
-                  fontSize: 14,
-                  color: "var(--text-muted)",
-                  lineHeight: 1.6,
-                  maxWidth: 420,
-                }}
-              >
-                A multi-outlet clothing retailer needed customers to browse,
-                customise, and order without calling the shop. We built a
-                catalogue site with WhatsApp checkout built in — live today,
-                taking real orders.
-              </p>
-            </div>
+          <div>
             <div
               style={{
-                height: 160,
-                borderRadius: 14,
-                background:
-                  "linear-gradient(135deg, var(--violet-deep), var(--violet) 60%, var(--cyan))",
-                opacity: 0.85,
+                fontFamily: "Manrope, sans-serif",
+                fontSize: 12,
+                color: "var(--cyan-soft)",
+                marginBottom: 10,
+                fontWeight: 700,
               }}
-            />
-          </GlassCard>
+            >
+              Case studies
+            </div>
+            <h2 style={{ fontWeight: 700, fontSize: 24, margin: "0 0 24px" }}>
+              Businesses we work with
+            </h2>
+            <div className="tier-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 18 }}>
+              {CLIENTS.map((client, i) => (
+                <Reveal key={client.name} delay={i * 110}>
+                  <GlassCard style={{ padding: 24, height: "100%" }}>
+                    <a
+                      href={client.href}
+                      target={client.href ? "_blank" : undefined}
+                      rel={client.href ? "noopener noreferrer" : undefined}
+                      aria-label={client.href ? `Visit ${client.name} website (opens in a new tab)` : undefined}
+                      style={{ color: "inherit", textDecoration: "none" }}
+                    >
+                    {client.logo ? (
+                      <div
+                        style={{
+                          width: 112,
+                          height: 112,
+                          borderRadius: 12,
+                          overflow: "hidden",
+                          background: "#fff",
+                          marginBottom: 16,
+                        }}
+                      >
+                        <Image
+                          src={client.logo}
+                          alt={client.alt!}
+                          width={112}
+                          height={112}
+                          style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        aria-hidden="true"
+                        style={{
+                          width: 34,
+                          height: 34,
+                          borderRadius: 9,
+                          background: "linear-gradient(135deg, var(--violet), var(--cyan))",
+                          marginBottom: 16,
+                        }}
+                      />
+                    )}
+                    <div style={{ fontWeight: 700, fontSize: 17 }}>{client.name}</div>
+                    </a>
+                  </GlassCard>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </Reveal>
       </div>
     </div>
