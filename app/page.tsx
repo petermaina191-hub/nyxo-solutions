@@ -183,6 +183,15 @@ export default function HomePage() {
                     justifyContent: "center",
                   }}
                 >
+                  {t.name === "Presence" && (
+                    <Image
+                      src="/slideshare-brands-solid-full.svg"
+                      alt=""
+                      width={20}
+                      height={20}
+                      style={{ filter: "brightness(0) invert(1)" }}
+                    />
+                  )}
                   {t.name === "Growth" && (
                     <Image
                       src="/arrow-trend-up-solid-full.svg"
