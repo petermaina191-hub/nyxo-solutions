@@ -178,8 +178,21 @@ export default function HomePage() {
                     borderRadius: 9,
                     background: "linear-gradient(135deg, var(--violet), var(--cyan))",
                     marginBottom: 16,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
-                />
+                >
+                  {t.name === "Growth" && (
+                    <Image
+                      src="/arrow-trend-up-solid-full.svg"
+                      alt=""
+                      width={20}
+                      height={20}
+                      style={{ filter: "brightness(0) invert(1)" }}
+                    />
+                  )}
+                </div>
                 <div style={{ fontWeight: 700, fontSize: 17, marginBottom: 8 }}>{t.name}</div>
                 <div
                   style={{
