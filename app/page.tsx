@@ -192,6 +192,15 @@ export default function HomePage() {
                       style={{ filter: "brightness(0) invert(1)" }}
                     />
                   )}
+                  {t.name === "Systems" && (
+                    <Image
+                      src="/gears-solid-full.svg"
+                      alt=""
+                      width={20}
+                      height={20}
+                      style={{ filter: "brightness(0) invert(1)" }}
+                    />
+                  )}
                 </div>
                 <div style={{ fontWeight: 700, fontSize: 17, marginBottom: 8 }}>{t.name}</div>
                 <div
