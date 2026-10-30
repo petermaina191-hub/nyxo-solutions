@@ -203,6 +203,9 @@ a:focus-visible {
 .nav-link.active { color: var(--text); }
 .nav-link.active::after { transform: scaleX(1); }
 
+.site-nav { background: rgba(11, 7, 20, 0.92); }
+:root[data-theme="light"] .site-nav { background: rgba(245, 244, 250, 0.96); }
+
 .brand-mark { transition: transform 0.25s ease; }
 a:hover .brand-mark { transform: scale(1.06) rotate(2deg); }
 

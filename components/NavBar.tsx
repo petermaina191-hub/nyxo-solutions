@@ -67,7 +67,7 @@ export function NavBar() {
 
   return (
     <div
-      className="glass"
+      className="glass site-nav"
       style={{
         position: "sticky",
         top: 0,
