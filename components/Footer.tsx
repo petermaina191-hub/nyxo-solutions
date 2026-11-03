@@ -37,7 +37,7 @@ export function Footer() {
               maxWidth: 260,
             }}
           >
-            Practical technology for Kenyan SMEs — websites, systems, and the
+            Practical technology solutions for Businesses — websites, systems, and the
             support to keep them running.
           </p>
         </div>
@@ -134,7 +134,7 @@ export function Footer() {
               <span>
                 P.O. Box 00300-00100, Nairobi, Kenya
                 <br />
-                Operating virtually — no physical office yet
+                Remote Office
               </span>
             </div>
           </div>

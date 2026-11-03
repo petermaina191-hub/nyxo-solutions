@@ -1,7 +1,7 @@
 const SECTIONS = [
   {
     title: "Who we are",
-    body: "Nyxo Solutions builds websites and digital systems for small and medium businesses in Kenya. We operate virtually. You can reach us at nyxosolutions@gmail.com, on +254 799 550 617, or by post at P.O. Box 00300-00100, Nairobi, Kenya.",
+    body: "Nyxo Solutions builds websites and digital systems for businesses in Kenya. We operate virtually. You can reach us at nyxosolutions@gmail.com, on +254 799 550 617, or by post at P.O. Box 00300-00100, Nairobi, Kenya.",
   },
   {
     title: "What we collect",
@@ -21,7 +21,7 @@ const SECTIONS = [
   },
   {
     title: "Your rights",
-    body: "Under the Kenya Data Protection Act, 2019 you can ask to see, correct or delete the personal data we hold about you. You can edit your name and phone number from your dashboard, or email us and we will help.",
+    body: "Under the Kenya Data Protection Act 2019, you can ask to see, correct or delete the personal data we hold about you. You can edit your name and phone number from your dashboard, or email us and we will help.",
   },
   {
     title: "Changes to this policy",

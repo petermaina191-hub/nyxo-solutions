@@ -4,15 +4,15 @@ import { Button } from "@/components/Button";
 const VALUES = [
   {
     title: "Practical over impressive",
-    body: "We build what actually moves your business forward — a working WhatsApp ordering flow beats a flashy site nobody can update.",
+    body: "We build what actually moves your business forward and keeps operations simple and practical — a working WhatsApp ordering flow beats a flashy site nobody can update.",
   },
   {
     title: "We understand operations, not just code",
-    body: "Our background is in running a real multi-outlet retail business, not just building websites for one — that shapes how we think about stock, staff, and sales.",
+    body: "Our background is in the real retail business and organisational operations, not just building websites for one — that shapes how we think about stock, clients, staff, and sales.",
   },
   {
     title: "Honest about what we offer",
-    body: "Where we're still building credentials — like formal IT audit or security assessments — we say so, rather than overselling.",
+    body: "Where we're still building credentials — like formal IT audit or security assessments — we say so. Credibility is far better than than overselling.",
   },
 ];
 
@@ -31,8 +31,8 @@ export default function AboutPage() {
           maxWidth: 640,
         }}
       >
-        Nyxo Solutions builds websites and digital systems for Kenyan SMEs —
-        clothing and retail businesses, service providers, and small teams
+        Nyxo Solutions builds websites and digital systems businesses —
+        clothing and retail businesses, service providers, manufacturing businesses, and more — can use to run their operations more efficiently. We focus on businesses
         that need technology to actually work for how they operate, not the
         other way around. We started by solving this for a real multi-outlet
         retailer, and we've kept that same practical, operations-first
@@ -73,13 +73,12 @@ export default function AboutPage() {
             marginBottom: 18,
           }}
         >
-          We operate virtually — no office yet, which keeps our overhead low
-          and our pricing realistic for small businesses. Every build
+          We operate virtually while keeping our pricing realistic and affordable for businesses for smoother and better digital transformation. Every build
           includes an ongoing support plan, and clients with an account can
           track their request's status and progress directly from their
           dashboard instead of chasing updates over WhatsApp.
         </p>
-        <Button href="/contact">Start a project</Button>
+        <Button href="/contact">Start a project with us today</Button>
       </GlassCard>
     </div>
   );

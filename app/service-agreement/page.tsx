@@ -90,7 +90,7 @@ const SECTIONS: LegalSection[] = [
     id: "support",
     title: "Free support period",
     blocks: [
-      `Where your Quotation includes it, we provide ${FREE_SUPPORT} of free support, starting on the day the work is handed over or goes live, whichever is first.`,
+      `Where your Quotation includes it, we provide not less than ${FREE_SUPPORT} of free support, starting on the day the work is handed over or goes live, whichever is first.`,
       [
         "Included: fixing errors in what we built, and answering questions about how to use it.",
         "Not included: new features, redesigns, content or price updates, extra training, and problems caused by changes made by you or other people or by third-party services.",

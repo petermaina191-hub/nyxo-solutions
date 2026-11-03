@@ -34,7 +34,7 @@ export default function LoginPage() {
   return (
     <AuthShell
       title="Welcome back"
-      subtitle="Log in to manage your project with Nyxo Solutions."
+      subtitle="Log in to manage your project."
       switchText="New here?"
       switchLabel="Create an account"
       switchHref="/signup"

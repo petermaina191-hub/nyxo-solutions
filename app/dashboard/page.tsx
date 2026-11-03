@@ -107,7 +107,7 @@ export default async function DashboardPage() {
         {!requests || requests.length === 0 ? (
           <GlassCard hover={false} style={{ padding: 22 }}>
             <p style={{ fontFamily: "Manrope, sans-serif", fontSize: 13, color: "var(--text-muted)", margin: 0 }}>
-              You haven't sent a request yet.
+              Your requests will appear here once you send us one.
             </p>
           </GlassCard>
         ) : (
@@ -134,7 +134,7 @@ export default async function DashboardPage() {
           Have feedback?
         </div>
         <p style={{ fontFamily: "Manrope, sans-serif", fontSize: 13, color: "var(--text-muted)", marginBottom: 14 }}>
-          Tell us how a project went, or suggest something we could do better.
+          Tell us how a project went, or suggest something we could do better. Your feedback helps us learn how team Nyxo can serve you better.
         </p>
         <Button variant="ghost" href="/dashboard/feedback">Leave feedback</Button>
       </GlassCard>

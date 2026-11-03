@@ -46,7 +46,7 @@ export default function ContactPage() {
   }
 
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-    "Hi Nyxo Solutions, I'd like to talk about a project."
+    "Hi Nyxo, I'd like to talk about a project."
   )}`;
 
   return (

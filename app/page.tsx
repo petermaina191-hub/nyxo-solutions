@@ -23,9 +23,27 @@ const TIERS = [
 ];
 
 const CLIENTS = [
-  { name: "Mwas Knit Wear Limited", logo: "/mwas-knit-logo.jpeg", alt: "Mwas Knit Wear logo", href: "https://www.mwasknitwear.co.ke" },
-  { name: "Accquest Training Institute", logo: "/accquest-training-institute-logo.jpeg", alt: "Accquest Training Institute logo", href: "https://accquest-ivory.vercel.app" },
-  { name: "Terratidy" },
+  {
+    name: "Mwas Knit Wear Limited",
+    logo: "/mwas-knit-logo.jpeg",
+    alt: "Mwas Knit Wear logo",
+    href: "https://www.mwasknitwear.co.ke",
+    description: "A Kenyan knitwear manufacturer and exporter, Mwas Knit Wear Limited needed a website to showcase its products and services to potential clients worldwide.",
+  },
+  {
+    name: "Accquest Training Institute",
+    logo: "/accquest-training-institute-logo.jpeg",
+    alt: "Accquest Training Institute logo",
+    href: "https://accquest-ivory.vercel.app",
+    description: "Accquest Training Institute provides training and development programmes designed to equip learners with practical skills and professional knowledge.",
+  },
+  {
+    name: "Terratidy (Under development)",
+    logo: "/terratidy-logo.jpeg",
+    alt: "Terratidy logo",
+    href: "https://terratidy.vercel.app",
+    description: "TerraTidy is a smart waste management system designed to simplify waste reporting, improve collection coordination and promote responsible waste disposal.",
+  },
 ];
 
 export default function HomePage() {
@@ -65,7 +83,7 @@ export default function HomePage() {
                 Websites and systems
               </span>
               <span className="hero-line" style={{ "--d": "280ms" } as React.CSSProperties}>
-                your business actually
+                your business
               </span>
               <span className="hero-line" style={{ "--d": "460ms" } as React.CSSProperties}>
                 runs on.
@@ -85,7 +103,7 @@ export default function HomePage() {
                 } as React.CSSProperties
               }
             >
-              Nyxo Solutions builds practical technology for Kenyan SMEs —
+              Nyxo Solutions builds practical technology for Businesses —
               from your first website to the systems that keep stock,
               staff, and sales in sync.
             </p>
@@ -241,7 +259,7 @@ export default function HomePage() {
                 fontWeight: 700,
               }}
             >
-              Case studies
+              Our Clients
             </div>
             <h2 style={{ fontWeight: 700, fontSize: 24, margin: "0 0 24px" }}>
               Businesses we work with
@@ -289,6 +307,17 @@ export default function HomePage() {
                       />
                     )}
                     <div style={{ fontWeight: 700, fontSize: 17 }}>{client.name}</div>
+
+                        <p
+                          style={{
+                              fontSize: 13,
+                              lineHeight: 1.6,
+                              color: "var(--muted)",
+                              marginTop: 10,
+                    }}
+                         >
+                             {client.description}
+                              </p>
                     </a>
                   </GlassCard>
                 </Reveal>

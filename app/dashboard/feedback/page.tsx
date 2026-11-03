@@ -65,7 +65,7 @@ export default function FeedbackPage() {
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div>
               <div style={{ fontFamily: "Manrope, sans-serif", fontSize: 12.5, color: "var(--text-muted)", marginBottom: 8 }}>
-                How would you rate your experience? (optional)
+                To help us serve you better, please rate your experience? (optional)
               </div>
               <div style={{ display: "flex", gap: 6 }}>
                 {[1, 2, 3, 4, 5].map((n) => (

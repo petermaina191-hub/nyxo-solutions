@@ -39,7 +39,7 @@ export const SERVICES: Service[] = [
     tiers: [
       {
         name: "Starter",
-        price: "KES 25,000 – 40,000",
+        price: "From KES 20,000",
         items: [
           "3–5 pages",
           "Mobile responsive design",
@@ -52,7 +52,7 @@ export const SERVICES: Service[] = [
       },
       {
         name: "Business",
-        price: "KES 50,000 – 80,000",
+        price: "From KES 50,000",
         items: [
           "6–10 pages",
           "Product / service catalogue",
@@ -61,7 +61,7 @@ export const SERVICES: Service[] = [
           "Google Business integration",
           "Analytics setup",
           "Professional business email",
-          "3 months of support",
+          "60 days of support",
         ],
       },
     ],
@@ -69,26 +69,26 @@ export const SERVICES: Service[] = [
   {
     id: "ecommerce",
     name: "E-commerce",
-    summary: "Online stores with real checkout, not just a catalogue.",
+    summary: "Online stores with checkout and catalogue.",
     icon: ShoppingCart,
-    gradient: ["#45E6E6", "#2F87E0"],
+    gradient: [" #45E6E6", "#2F87E0"],
     tiers: [
       {
         name: "Standard",
-        price: "KES 60,000 – 100,000",
+        price: "From KES 70,000",
         items: [
           "Product catalogue with variations",
           "Shopping cart",
           "WhatsApp checkout & order alerts",
-          "Basic admin panel",
         ],
       },
       {
         name: "Advanced",
-        price: "KES 100,000 – 200,000+",
+        price: "From KES 120,000",
         items: [
           "M-Pesa / Paystack integration",
           "Customer accounts",
+          "Basic Admin panel",
           "Inventory sync",
           "Order management dashboard",
         ],
@@ -109,7 +109,7 @@ export const SERVICES: Service[] = [
       },
       {
         name: "Monthly Support",
-        price: "KES 8,000 – 15,000 / mo",
+        price: "From KES 8,000 / mo",
         items: ["Remote support", "Monthly system check", "Priority response"],
       },
     ],
@@ -146,7 +146,7 @@ export const SERVICES: Service[] = [
     tiers: [
       {
         name: "Setup",
-        price: "KES 5,000 – 12,000",
+        price: "From KES 6,500",
         items: [
           "Google Workspace or Microsoft 365 setup",
           "Domain & DNS configuration",
@@ -188,7 +188,7 @@ export const SERVICES: Service[] = [
     tiers: [
       {
         name: "Single outlet",
-        price: "KES 20,000 – 40,000",
+        price: "From KES 25,000",
         items: ["POS / inventory software setup", "Staff training", "Basic reporting"],
       },
       {
@@ -197,6 +197,8 @@ export const SERVICES: Service[] = [
         items: [
           "Inventory sync across branches",
           "Basic CRM / customer database",
+          "Supplier Management",
+          "HRM / Staff Management",
           "Ongoing support",
         ],
       },
@@ -263,7 +265,7 @@ export const SERVICES: Service[] = [
     tiers: [
       {
         name: "Care plan",
-        price: "KES 3,000 – 10,000 / mo",
+        price: "From KES 3,000",
         items: ["Hosting", "Updates & minor changes", "Backups & monitoring", "Technical support"],
       },
     ],
