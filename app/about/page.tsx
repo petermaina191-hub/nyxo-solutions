@@ -108,8 +108,8 @@ export default function AboutPage() {
           Interested in volunteering or an internship? We’d like to hear from
           people who want to learn, contribute, and help build practical digital
           solutions. Tell us what you’re interested in, what you’d like to learn,
-          and how you hope to contribute. Opportunities depend on our current
-          projects and capacity.
+          and how you hope to contribute. Please attach your CV to your email.
+          Opportunities depend on our current projects and capacity.
         </p>
         <Button href="mailto:nyxosolutions@gmail.com?subject=Volunteer%20or%20internship%20enquiry">
           Ask about opportunities
