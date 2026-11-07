@@ -80,6 +80,41 @@ export default function AboutPage() {
         </p>
         <Button href="/contact">Start a project with us today</Button>
       </GlassCard>
+
+      <GlassCard hover={false} spotlight={false} style={{ padding: 28, marginTop: 16 }}>
+        <div
+          style={{
+            fontFamily: "Manrope, sans-serif",
+            fontSize: 12,
+            color: "var(--cyan-soft)",
+            fontWeight: 700,
+            marginBottom: 8,
+          }}
+        >
+          Careers
+        </div>
+        <h2 style={{ fontWeight: 700, fontSize: 20, margin: "0 0 10px" }}>
+          Grow your skills with Nyxo
+        </h2>
+        <p
+          style={{
+            fontFamily: "Manrope, sans-serif",
+            fontSize: 13.5,
+            color: "var(--text-muted)",
+            lineHeight: 1.65,
+            margin: "0 0 18px",
+          }}
+        >
+          Interested in volunteering or an internship? We’d like to hear from
+          people who want to learn, contribute, and help build practical digital
+          solutions. Tell us what you’re interested in, what you’d like to learn,
+          and how you hope to contribute. Opportunities depend on our current
+          projects and capacity.
+        </p>
+        <Button href="mailto:nyxosolutions@gmail.com?subject=Volunteer%20or%20internship%20enquiry">
+          Ask about opportunities
+        </Button>
+      </GlassCard>
     </div>
   );
 }
