@@ -206,6 +206,12 @@ a:focus-visible {
 .site-nav { background: rgba(11, 7, 20, 0.92); }
 :root[data-theme="light"] .site-nav { background: rgba(245, 244, 250, 0.96); }
 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .brand-mark { transition: transform 0.25s ease; }
 a:hover .brand-mark { transform: scale(1.06) rotate(2deg); }
 
@@ -342,6 +348,11 @@ a:hover .brand-mark { transform: scale(1.06) rotate(2deg); }
   .nav-actions-desktop { display: none !important; }
   .nav-toggle { display: block !important; }
   .nav-mobile-panel { display: flex !important; }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
 }
 
 /* =====================================================================
