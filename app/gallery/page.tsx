@@ -59,24 +59,45 @@ export default function GalleryPage() {
         </p>
       </div>
 
-      <Reveal>
-        <GlassCard hover={false} spotlight={false} style={{ padding: 16, marginBottom: 44 }}>
-          <video
-            controls
-            preload="metadata"
-            playsInline
-            poster="/nyxo-campaign-poster-1.jpeg"
-            aria-label="Nyxo Solutions advert video"
-            style={{ display: "block", width: "100%", maxHeight: 620, borderRadius: 12, background: "#090612" }}
-          >
-            <source src="/nyxo-advert-video.mp4" type="video/mp4" />
-            Your browser does not support the video player.
-          </video>
-          <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6, margin: "14px 4px 2px" }}>
-            Practical websites, online stores, and digital systems for your business.
-          </p>
-        </GlassCard>
-      </Reveal>
+      <h2 style={{ fontWeight: 700, fontSize: 22, margin: "0 0 16px" }}>Campaign videos</h2>
+      <div className="gallery-video-grid" style={{ marginBottom: 44 }}>
+        <Reveal>
+          <GlassCard hover={false} spotlight={false} style={{ padding: 16, height: "100%" }}>
+            <video
+              controls
+              preload="metadata"
+              playsInline
+              poster="/nyxo-campaign-poster-1.jpeg"
+              aria-label="Nyxo Solutions advert video"
+              style={{ display: "block", width: "100%", maxHeight: 620, borderRadius: 12, background: "#090612" }}
+            >
+              <source src="/nyxo-advert-video.mp4" type="video/mp4" />
+              Your browser does not support the video player.
+            </video>
+            <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6, margin: "14px 4px 2px" }}>
+              Practical websites, online stores, and digital systems for your business.
+            </p>
+          </GlassCard>
+        </Reveal>
+        <Reveal delay={100}>
+          <GlassCard hover={false} spotlight={false} style={{ padding: 16, height: "100%" }}>
+            <video
+              controls
+              preload="none"
+              playsInline
+              poster="/nyxo-campaign-poster-2.jpeg"
+              aria-label="Second Nyxo Solutions advert video"
+              style={{ display: "block", width: "100%", maxHeight: 620, borderRadius: 12, background: "#090612" }}
+            >
+              <source src="/nyxo-advert-video-2.mp4" type="video/mp4" />
+              Your browser does not support the video player.
+            </video>
+            <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6, margin: "14px 4px 2px" }}>
+              More from Nyxo Solutions.
+            </p>
+          </GlassCard>
+        </Reveal>
+      </div>
 
       <div style={{ display: "flex", alignItems: "end", justifyContent: "space-between", gap: 16, marginBottom: 20 }}>
         <div>

@@ -212,6 +212,12 @@ a:focus-visible {
   gap: 16px;
 }
 
+.gallery-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .brand-mark { transition: transform 0.25s ease; }
 a:hover .brand-mark { transform: scale(1.06) rotate(2deg); }
 
@@ -349,6 +355,7 @@ a:hover .brand-mark { transform: scale(1.06) rotate(2deg); }
   .nav-toggle { display: block !important; }
   .nav-mobile-panel { display: flex !important; }
   .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-video-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
