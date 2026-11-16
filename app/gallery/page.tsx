@@ -97,6 +97,24 @@ export default function GalleryPage() {
             </p>
           </GlassCard>
         </Reveal>
+        <Reveal delay={200}>
+          <GlassCard hover={false} spotlight={false} style={{ padding: 16, height: "100%" }}>
+            <video
+              controls
+              preload="none"
+              playsInline
+              poster="/nyxo-campaign-poster-3.jpeg"
+              aria-label="Third Nyxo Solutions advert video"
+              style={{ display: "block", width: "100%", maxHeight: 620, borderRadius: 12, background: "#090612" }}
+            >
+              <source src="/nyxo-advert-video-3.mp4" type="video/mp4" />
+              Your browser does not support the video player.
+            </video>
+            <p style={{ fontSize: 13, color: "var(--text-muted)", lineHeight: 1.6, margin: "14px 4px 2px" }}>
+              More from Nyxo Solutions.
+            </p>
+          </GlassCard>
+        </Reveal>
       </div>
 
       <div style={{ display: "flex", alignItems: "end", justifyContent: "space-between", gap: 16, marginBottom: 20 }}>
