@@ -214,7 +214,7 @@ a:focus-visible {
 
 .gallery-video-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -343,7 +343,6 @@ a:hover .brand-mark { transform: scale(1.06) rotate(2deg); }
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .services-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .gallery-video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 760px) {
