@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./nx-premium.css";
 import { NavBar } from "@/components/NavBar";
-import { Footer } from "@/components/Footer";
+import { NxFooter } from "@/components/nx/NxFooter";
+import { NxMobileBar } from "@/components/nx/NxMobileBar";
 import { TechBackdrop } from "@/components/TechBackdrop";
 import { CinematicOverlay } from "@/components/CinematicOverlay";
 
@@ -35,7 +37,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="grain" />
         <NavBar />
         <main>{children}</main>
-        <Footer />
+        <NxFooter />
+        <NxMobileBar/>
       </body>
     </html>
   );

@@ -1,11 +1,14 @@
 import { ConstellationField } from "@/components/ConstellationField";
-import { Mark } from "@/components/Logo";
 import { GlassCard } from "@/components/GlassCard";
-import { Button } from "@/components/Button";
 import { Reveal } from "@/components/Reveal";
-import { Parallax } from "@/components/Parallax";
 import { SERVICES } from "@/data/services";
 import Image from "next/image";
+import { NxHero } from "@/components/nx/NxHero";
+import { NxStats } from "@/components/nx/NxStats";
+import { NxProblem } from "@/components/nx/NxProblem";
+import { NxProcess } from "@/components/nx/NxProcess";
+import { NxFaq } from "@/components/nx/NxFaq";
+import { NxFinalCta } from "@/components/nx/NxFinalCta";
 
 const TIERS = [
   {
@@ -49,113 +52,19 @@ const CLIENTS = [
 export default function HomePage() {
   return (
     <div>
-      {/* hero */}
-      <div style={{ position: "relative", overflow: "hidden" }}>
-        <ConstellationField
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
-        />
-        <div className="hero-beam" aria-hidden="true" />
-        <div
-          className="hero-grid"
-          style={{
-            maxWidth: 1120,
-            margin: "0 auto",
-            padding: "88px 24px 40px",
-            display: "grid",
-            gridTemplateColumns: "1.1fr 0.9fr",
-            gap: 40,
-            alignItems: "center",
-            position: "relative",
-            zIndex: 1,
-          }}
-        >
-          <div>
-            <h1
-              style={{
-                fontWeight: 800,
-                fontSize: 46,
-                lineHeight: 1.08,
-                letterSpacing: "-0.02em",
-                maxWidth: 580,
-              }}
-            >
-              <span className="hero-line" style={{ "--d": "100ms" } as React.CSSProperties}>
-                Websites and systems
-              </span>
-              <span className="hero-line" style={{ "--d": "280ms" } as React.CSSProperties}>
-                your business
-              </span>
-              <span className="hero-line" style={{ "--d": "460ms" } as React.CSSProperties}>
-                runs on.
-              </span>
-            </h1>
-            <p
-              className="hero-in"
-              style={
-                {
-                  "--d": "760ms",
-                  fontFamily: "Manrope, sans-serif",
-                  fontSize: 16,
-                  color: "var(--text-muted)",
-                  maxWidth: 460,
-                  marginTop: 18,
-                  lineHeight: 1.6,
-                } as React.CSSProperties
-              }
-            >
-              Nyxo Solutions builds practical technology for Businesses —
-              from your first website to the systems that keep stock,
-              staff, and sales in sync.
-            </p>
-            <div
-              className="hero-in"
-              style={{ "--d": "960ms", display: "flex", gap: 12, marginTop: 30 } as React.CSSProperties}
-            >
-              <Button href="/contact">Start a project</Button>
-              <Button variant="ghost" href="/services">
-                See how we work
-              </Button>
-            </div>
-          </div>
+      {/* hero (new): keeps your particle background and light beam */}
+      <NxHero
+        background={
+          <>
+            <ConstellationField
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+            />
+            <div className="hero-beam" aria-hidden="true" />
+          </>
+        }
+      />
 
-          <div style={{ position: "relative", height: 320 }}>
-            <div
-              style={{
-                position: "absolute",
-                inset: 0,
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Parallax strength={14}>
-                <div className="mark-glow">
-                  <Mark size={230} />
-                </div>
-              </Parallax>
-            </div>
-            <Parallax strength={-9} style={{ position: "absolute", bottom: 10, left: 0 }}>
-              <GlassCard hover={false} style={{ padding: "16px 18px", maxWidth: 230 }}>
-                <div
-                  style={{
-                    fontFamily: "Manrope, sans-serif",
-                    fontSize: 12,
-                    color: "var(--text-faint)",
-                    marginBottom: 4,
-                  }}
-                >
-                  Live build
-                </div>
-                <div style={{ fontWeight: 700, fontSize: 14.5 }}>
-                  Multi-outlet retailer, WhatsApp checkout live
-                </div>
-              </GlassCard>
-            </Parallax>
-          </div>
-        </div>
-      </div>
-
-      {/* services marquee */}
+      {/* services marquee (yours, unchanged) */}
       <div className="marquee" aria-label="Our services" style={{ marginTop: 28 }}>
         <div className="marquee-track">
           {[0, 1].map((copy) => (
@@ -175,7 +84,11 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* tiers preview */}
+      {/* new: proof numbers and before / after */}
+      <NxStats />
+      <NxProblem />
+
+      {/* tiers preview (yours, unchanged) */}
       <div style={{ maxWidth: 1120, margin: "60px auto 0", padding: "0 24px" }}>
         <Reveal>
           <h2 style={{ fontWeight: 700, fontSize: 24, margin: "0 0 24px" }}>
@@ -246,7 +159,10 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* client case studies */}
+      {/* new: how it works */}
+      <NxProcess />
+
+      {/* client case studies (yours, unchanged except one colour variable) */}
       <div style={{ maxWidth: 1120, margin: "70px auto 0", padding: "0 24px" }}>
         <Reveal>
           <div>
@@ -275,49 +191,49 @@ export default function HomePage() {
                       aria-label={client.href ? `Visit ${client.name} website (opens in a new tab)` : undefined}
                       style={{ color: "inherit", textDecoration: "none" }}
                     >
-                    {client.logo ? (
-                      <div
+                      {client.logo ? (
+                        <div
+                          style={{
+                            width: 112,
+                            height: 112,
+                            borderRadius: 12,
+                            overflow: "hidden",
+                            background: "#fff",
+                            marginBottom: 16,
+                          }}
+                        >
+                          <Image
+                            src={client.logo}
+                            alt={client.alt!}
+                            width={112}
+                            height={112}
+                            style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          aria-hidden="true"
+                          style={{
+                            width: 34,
+                            height: 34,
+                            borderRadius: 9,
+                            background: "linear-gradient(135deg, var(--violet), var(--cyan))",
+                            marginBottom: 16,
+                          }}
+                        />
+                      )}
+                      <div style={{ fontWeight: 700, fontSize: 17 }}>{client.name}</div>
+
+                      <p
                         style={{
-                          width: 112,
-                          height: 112,
-                          borderRadius: 12,
-                          overflow: "hidden",
-                          background: "#fff",
-                          marginBottom: 16,
+                          fontSize: 13,
+                          lineHeight: 1.6,
+                          color: "var(--text-muted)",
+                          marginTop: 10,
                         }}
                       >
-                        <Image
-                          src={client.logo}
-                          alt={client.alt!}
-                          width={112}
-                          height={112}
-                          style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                        />
-                      </div>
-                    ) : (
-                      <div
-                        aria-hidden="true"
-                        style={{
-                          width: 34,
-                          height: 34,
-                          borderRadius: 9,
-                          background: "linear-gradient(135deg, var(--violet), var(--cyan))",
-                          marginBottom: 16,
-                        }}
-                      />
-                    )}
-                    <div style={{ fontWeight: 700, fontSize: 17 }}>{client.name}</div>
-
-                        <p
-                          style={{
-                              fontSize: 13,
-                              lineHeight: 1.6,
-                              color: "var(--muted)",
-                              marginTop: 10,
-                    }}
-                         >
-                             {client.description}
-                              </p>
+                        {client.description}
+                      </p>
                     </a>
                   </GlassCard>
                 </Reveal>
@@ -326,6 +242,10 @@ export default function HomePage() {
           </div>
         </Reveal>
       </div>
+
+      {/* new: questions and closing call to action */}
+      <NxFaq />
+      <NxFinalCta />
     </div>
   );
 }
